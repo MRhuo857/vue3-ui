@@ -43,14 +43,9 @@
 </script>
 <style lang="scss" scoped>
     aside{
-        border: 1px solid green;
         background: pink;
         width: 150px;
         padding: 16px;
-        padding-top: 70px;
-        position: fixed;
-        top: 0;
-        left: 0;
         >h2{
             margin-bottom: 4px;
         }
@@ -58,6 +53,12 @@
             >li{
                 padding: 4px 0;
             }
+        }
+        @media (max-width:500px) {
+            position: fixed;
+            padding-top: 70px;
+            top: 0;
+            left: 0;
         }
     }
 

@@ -1,27 +1,46 @@
 <template>
     <div class="topnav">
-        <div class="logo">Logo</div>
+        <div class="logo" @click="toggleMenu">Logo</div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
         </ul>
     </div>
 </template>
+<script lang="ts">
+  import {inject, Ref} from 'vue';
+
+  export default {
+    setup() {
+      const asideVisible = inject<Ref<boolean>>('xxx');
+      console.log(asideVisible);
+      const toggleMenu = () => {
+        asideVisible.value = !asideVisible.value;
+      };
+      return {toggleMenu}
+    }
+  };
+</script>
 <style lang="scss" scoped>
     .topnav {
-        background:#c67085;
+        background: #c67085;
         display: flex;
         padding: 16px;
-        >.logo{
+        position: relative;
+        z-index: 10;
+
+        > .logo {
             max-width: 6em;
             margin-right: auto;
         }
-        >.menu{
+
+        > .menu {
             display: flex;
             white-space: nowrap;
             flex-wrap: nowrap;
-            >li{
-                margin:0 1em;
+
+            > li {
+                margin: 0 1em;
             }
         }
 

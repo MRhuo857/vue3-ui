@@ -5,7 +5,9 @@
             <li>菜单1</li>
             <li>菜单2</li>
         </ul>
-        <span class="toggleAside" @click="toggleMenu"></span>
+        <span class="toggleAside" @click="toggleMenu">
+
+        </span>
     </div>
 </template>
 <script lang="ts">
@@ -13,8 +15,7 @@
 
   export default {
     setup() {
-      const asideVisible = inject<Ref<boolean>>('xxx');
-      console.log(asideVisible);
+      const asideVisible = inject<Ref<boolean>>('asideVisible');
       const toggleMenu = () => {
         asideVisible.value = !asideVisible.value;
       };
@@ -27,7 +28,10 @@
         background: #c67085;
         display: flex;
         padding: 16px;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         z-index: 10;
         justify-content: center;
         align-items: center;
